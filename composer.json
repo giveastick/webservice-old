@@ -1,5 +1,12 @@
 {
+    "name": "Give a stick API",
     "require": {
-        "slim/slim": "2.*"
+        "slim/slim": "2.*",
+        "illuminate/database": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "models"
+        ]
     }
 }

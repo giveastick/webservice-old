@@ -82,5 +82,5 @@ function echoResponse($status_code, $response)
     // setting response content type to json
     $app->contentType('application/json');
 
-    echo json_encode($response);
+    echo json_encode(array('android'=>$response));
 }

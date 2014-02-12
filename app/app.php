@@ -3,6 +3,31 @@
 require 'lib/errorhandlers.php';
 
 /**
+ * Test
+ * url - /ping
+ * method - GET
+ * params - none
+ */
+$app->get('/ping', function() use ($app){
+    $response['pong'] = 'pong';
+
+    echoResponse(200, $response);
+});
+
+/**
+ * Test
+ * url - /veronique
+ * method - POST
+ * params - none
+ */
+$app->post('/veronique', function() use ($app){
+    $response['davina'] = 'toutouyoutou...toutouyoutou...toutouyoutouyoutou...toutoutoutoutou';
+
+    echoResponse(200, $response);
+});
+
+
+/**
  * User login
  * url - /login
  * method - GET

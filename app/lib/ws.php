@@ -73,7 +73,7 @@ function validateEmail($email)
  *  * @param String $status_code Http response code
  *  * @param Int $response Json response
  *  */
-function echoResponse($status_code, $response)
+function echoResponse($status_code, $data, $error_message = null)
 {
     $app = \Slim\Slim::getInstance();
     // Http response code
@@ -81,6 +81,21 @@ function echoResponse($status_code, $response)
 
     // setting response content type to json
     $app->contentType('application/json');
+
+    if((int) $status_code >= 200 && (int) $status_code < 300)
+    {
+        $response['success'] = true;
+        $response['data'] = $data;
+    }
+    else
+    {
+        $response['error'] = true;
+
+        if(!empty($error_message))
+        {
+            $response['message'] = $error_message;
+        }
+    }
 
     echo json_encode(array('android'=>$response));
 }

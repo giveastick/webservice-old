@@ -13,9 +13,7 @@ function authenticate(\Slim\Route $route) {
     // Verifying Authorization Header
     if (!isset($headers['Authorization'])) {
         // api key is missing in header
-        $response["error"] = true;
-        $response["message"] = "Api key is misssing";
-        echoResponse(400, $response);
+        echoResponse(400, null, "Api key is misssing");
         $app->stop();
     }
 }

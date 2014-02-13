@@ -1,8 +1,6 @@
 <?php
 function handleError($e, $app){
-    $response["error"] = true;
-    $response["message"] = $e->getMessage();
-    echoResponse($e->getCode(), $response);
+    echoResponse($e->getCode(), null, $e->getMessage());
     $app->stop();
 }
 

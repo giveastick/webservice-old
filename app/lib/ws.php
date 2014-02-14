@@ -25,12 +25,7 @@ function verifyRequiredParams($required_fields)
 {
     $error = false;
     $error_fields = "";
-    $request_params = $_REQUEST;
-    // Handling PUT request params
-    if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
-        $app = \Slim\Slim::getInstance();
-        parse_str($app->request()->getBody(), $request_params);
-    }
+    $request_params = getJsonParam();
     foreach ($required_fields as $field) {
         if (!isset($request_params[$field]) || strlen(trim($request_params[$field])) <= 0) {
             $error = true;
@@ -59,7 +54,7 @@ function validateEmail($email)
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $response["error"] = true;
         $response["message"] = 'Email address is not valid';
-        echoRespnse(400, $response);
+        echoResponse(400, $response);
         $app->stop();
     }
 }
@@ -94,4 +89,33 @@ function echoResponse($status_code, $data, $error_message = null)
     }
 
     echo json_encode(array('android'=>$response));
+}
+
+/**
+ * Get the JSON Request parameter value
+ * @param Key : key of the parameter
+ * @param Default : default value if parameter doesn't exists
+ */
+function getJsonParam($key = null, $default = null)
+{
+    $result = $default;
+    try{
+        $params = array();
+        $app = \Slim\Slim::getInstance();
+        parse_str($app->request()->getBody(), $params);
+
+        if(!is_null($key))
+        {
+            $result = $params[$key];
+        }
+        else
+        {
+            $result = $params;
+        }
+    }
+    catch(Exception $e)
+    {}
+
+    return $result;
+
 }

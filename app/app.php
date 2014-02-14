@@ -36,7 +36,7 @@ $app->post('/veronique', function() use ($app){
 $app->post('/login', function() use ($app){
     verifyRequiredParams(array('email','password'));
 
-    if($app->request->post('password') == 'good' && $app->request->post('email') == 'demo@giveastick.com')
+    if(getJsonParam('password') == 'good' && getJsonParam('email') == 'demo@giveastick.com')
     {
         $response['success'] = true;
         $response['user']['email'] = 'demo@giveastick.com';

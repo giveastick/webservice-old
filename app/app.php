@@ -193,6 +193,7 @@ $app->post('/debug', function() use ($app){
     $response['get'] = $_GET;
     $response['request'] = $_REQUEST;
     $response['cookies'] = $_COOKIE;
+    $response['postSlim'] = $app->request->post();
 
     echoResponse(200, $response);
 });
@@ -208,6 +209,7 @@ $app->get('/debug', function() use ($app){
     $response['get'] = $_GET;
     $response['request'] = $_REQUEST;
     $response['cookies'] = $_COOKIE;
+    $response['postSlim'] = $app->request->post();
 
     echoResponse(200, $response);
 });

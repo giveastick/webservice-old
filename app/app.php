@@ -40,6 +40,7 @@ $app->post('/login', function() use ($app){
     {
         $response['success'] = true;
         $response['user']['email'] = 'demo@giveastick.com';
+        $response['user']['nick'] = 'dem0Man';
         $response['user']['group'] = 'IIA2013';
     }
     else

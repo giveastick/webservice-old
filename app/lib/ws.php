@@ -111,7 +111,9 @@ function getJsonParam($key = null, $default = null)
         }
     }
     catch(Exception $e)
-    {}
+    {
+        $result = $e->getMessage();
+    }
 
     return $result;
 

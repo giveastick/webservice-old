@@ -194,6 +194,7 @@ $app->post('/debug', function() use ($app){
     $response['request'] = $_REQUEST;
     $response['cookies'] = $_COOKIE;
     $response['postSlim'] = $app->request->post();
+    $response['bodySlim'] =  json_encode($app->request()->getBody());
 
     echoResponse(200, $response);
 });
@@ -210,6 +211,7 @@ $app->get('/debug', function() use ($app){
     $response['request'] = $_REQUEST;
     $response['cookies'] = $_COOKIE;
     $response['postSlim'] = $app->request->post();
+    $response['bodySlim'] =  json_encode($app->request()->getBody());
 
     echoResponse(200, $response);
 });

@@ -16,5 +16,6 @@ $settings = array(
 
 // Bootstrap Eloquent ORM
 $app = new \Slim\Slim();
+$app->add(new \Slim\Middleware\ContentTypes());
 
 require 'app/app.php';

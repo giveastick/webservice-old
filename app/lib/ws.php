@@ -34,12 +34,9 @@ function verifyRequiredParams($required_fields)
     }
 
     if ($error) {
-        // Required field(s) are missing or empty
-        // echo error json and stop the app
-        $response = array();
         $app = \Slim\Slim::getInstance();
 
-        echoResponse(400, null, 'Required field(s) ' . substr($error_fields, 0, -2) . ' is missing or empty');
+        echoResponse(400, null, 'Required field(s) ' . substr($error_fields, 0, -2) . ' is missing or empty . Given ' . print_r($request_params, true));
         $app->stop();
     }
 }

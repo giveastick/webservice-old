@@ -181,6 +181,36 @@ $app->get('/sanction', 'authenticate', function() use ($app){
     echoResponse(200, $response);
 });
 
+/**
+ * Debugs the post data
+ * url - /sanction
+ * method - POST
+ */
+$app->post('/debug', function() use ($app){
+
+    $response['post'] = $_POST;
+    $response['get'] = $_GET;
+    $response['request'] = $_REQUEST;
+    $response['cookies'] = $_COOKIE;
+
+    echoResponse(200, $response);
+});
+
+/**
+ * Debugs the post data
+ * url - /sanction
+ * method - GET
+ */
+$app->get('/debug', function() use ($app){
+
+    $response['post'] = $_POST;
+    $response['get'] = $_GET;
+    $response['request'] = $_REQUEST;
+    $response['cookies'] = $_COOKIE;
+
+    echoResponse(200, $response);
+});
+
 function getWords($nb)
 {
     $filename = 'src/fr_dictionnaire.txt';

@@ -116,5 +116,4 @@ function getJsonParam($key = null, $default = null)
     }
 
     return $result;
-
 }

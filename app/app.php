@@ -211,7 +211,7 @@ $app->get('/debug', function() use ($app){
     $response['request'] = $_REQUEST;
     $response['cookies'] = $_COOKIE;
     $response['postSlim'] = $app->request->post();
-    $response['bodySlim'] =  json_encode($app->request()->getBody());
+    $response['bodySlim'] =  getJsonParam();
 
     echoResponse(200, $response);
 });

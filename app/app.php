@@ -189,7 +189,7 @@ $app->get('/sanction', 'authenticate', function() use ($app){
  */
 $app->post('/debug', function() use ($app){
     var_dump($app->request()->getBody());
-    var_dump(urldecode($app->request()->getBody()));
+    var_dump(json_decode($app->request()->getBody()));
     var_dump(getJsonParam());
     exit();
 

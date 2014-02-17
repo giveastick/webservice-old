@@ -189,6 +189,8 @@ $app->get('/sanction', 'authenticate', function() use ($app){
  */
 $app->post('/debug', function() use ($app){
 
+    var_dump(getJsonParam());
+    exit();
     $response['post'] = $_POST;
     $response['get'] = $_GET;
     $response['request'] = $_REQUEST;

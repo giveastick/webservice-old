@@ -188,11 +188,11 @@ $app->get('/sanction', 'authenticate', function() use ($app){
  * method - POST
  */
 $app->post('/debug', function() use ($app){
-
     var_dump($app->request()->getBody());
-    var_dump(url_decode($app->request()->getBody()));
+    var_dump(urldecode($app->request()->getBody()));
     var_dump(getJsonParam());
     exit();
+
     $response['post'] = $_POST;
     $response['get'] = $_GET;
     $response['request'] = $_REQUEST;

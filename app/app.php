@@ -183,6 +183,20 @@ $app->get('/sanction', 'authenticate', function() use ($app){
 });
 
 /**
+ * Gets a group info
+ * url - /sanction
+ * method - GET
+ */
+$app->get('/group/:tag', 'authenticate', function($tag) use ($app){
+
+    $response['success'] = true;
+    $response['id'] = rand(1,999999);
+    $response['group']['tag'] = $tag;
+
+    echoResponse(200, $response);
+});
+
+/**
  * Debugs the post data
  * url - /sanction
  * method - POST

@@ -99,7 +99,7 @@ function getJsonParam($key = null, $default = null)
     try{
         $params = array();
         $app = \Slim\Slim::getInstance();
-        $params = json_decode(urldecode($app->request()->getBody(), $params));
+        $params = json_decode(urldecode($app->request()->getBody()));
 
         if(!is_null($key))
         {

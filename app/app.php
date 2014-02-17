@@ -194,7 +194,7 @@ $app->post('/debug', function() use ($app){
     $response['request'] = $_REQUEST;
     $response['cookies'] = $_COOKIE;
     $response['postSlim'] = $app->request->post();
-    response['jsonParameters'] =  getJsonParam();
+    $response['jsonParameters'] =  getJsonParam();
 
     echoResponse(200, $response);
 });
